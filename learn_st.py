@@ -5,7 +5,6 @@
 # streamlit run learn_st.py
 
 import streamlit as st
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
@@ -152,3 +151,6 @@ st.map(data_filter)
 
 # mettre sur un repo public github
 
+# s'inscrire à share.streamlit.io
+
+# Cliquer 'Deploy an app' puis coller l'url du repo
