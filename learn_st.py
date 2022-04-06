@@ -127,8 +127,10 @@ st.map(data)
 ########## FILTRER AVEC LE SLIDER ##########
 
 
+st.subheader(f'\n\n\n FILTERING WITH SLIDER')
+
 # filtrage
-filter = st.slider('choose hour', 0, 23, 17)  # de 0 à 23, défaut = 17
+filter = st.slider('\n\n\n for what hour do you want to view data ?', 0, 23, 17)  # de 0 à 23, défaut = 17
 data_filter = data[data['date/time'].dt.hour==filter]
 
 # entête
