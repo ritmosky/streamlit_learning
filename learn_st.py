@@ -72,7 +72,7 @@ st.subheader('LIGNES DE DONNÉES')
 data_load_state = st.text('Loading data...')
 
 # charger 1000 lignes de données
-data = load_data(1000)
+data = load_data(10000)
 
 # indiquer la fin du chargement
 data_load_state.text('Loading data...done!')
