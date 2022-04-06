@@ -23,14 +23,17 @@ The python file contains the code that was used to set up the site. So it is bet
 
 Ordering is simple. You must first place it in the folder containing the file and then launch it with the terminal: streamlit run file_name.py
 
+
+
+
+
 >> Here is the link to access the website  -->>  https://share.streamlit.io/ritmosky/streamlit_learning/main/learn_st.py
 
 
+
+
+
 For those who would like to learn Streamlit here is the link -->> https://streamlit.io
-
-
-
-
 
 
 
