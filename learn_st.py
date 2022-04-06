@@ -106,23 +106,23 @@ st.map(data)
 ########## MOMENT LE PLUS AFFLUENT ##########
 
 
-# filtrage
-h = 10
-data_h = data[data['date/time'].dt.hour==h]
-
-# entête
-st.subheader(f'Number of pickups by minutes at {h}:00')
-
-# histogramme
-histo_h = np.histogram(data_h['date/time'].dt.minute, bins=60, range=(0,60))
-
-hist_h_values = histo_h[0]
-st.bar_chart(hist_h_values)
-
-# map
-st.subheader(f'Map of all at {h}:00')
-st.map(data_h)
-
+# # filtrage
+# h = 10
+# data_h = data[data['date/time'].dt.hour==h]
+#
+# # entête
+# st.subheader(f'Number of pickups by minutes at {h}:00')
+#
+# # histogramme
+# histo_h = np.histogram(data_h['date/time'].dt.minute, bins=60, range=(0,60))
+#
+# hist_h_values = histo_h[0]
+# st.bar_chart(hist_h_values)
+#
+# # map
+# st.subheader(f'Map of all at {h}:00')
+# st.map(data_h)
+#
 
 ########## FILTRER AVEC LE SLIDER ##########
 
