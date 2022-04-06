@@ -72,7 +72,7 @@ st.subheader('LIGNES DE DONNÉES')
 data_load_state = st.text('Loading data...')
 
 # charger 1000 lignes de données
-data = load_data(10000)
+data = load_data(50000)
 
 # indiquer la fin du chargement
 data_load_state.text('Loading data...done!')
@@ -124,17 +124,43 @@ st.map(data)
 # st.map(data_h)
 #
 
+
+########## FILTRER AVEC UN CALENDRIER ##########
+
+
+st.subheader('FILTERING WITH CALENDAR')
+
+# filtrage
+d = st.date_input(
+     "Pick a date", value=pd.to_datetime("2014-09-01"), min_value=pd.to_datetime("2014-09-01"), max_value=pd.to_datetime("2014-09-30"))
+
+data_d = data[data['date/time'].dt.day==d.day]
+
+# entête
+st.subheader(f'Number of pickups on < {d} >')
+
+# histogramme
+histo_d = np.histogram(data_d['date/time'].dt.hour, bins=24, range=(0,24))
+
+hist_d_values = histo_d[0]
+st.bar_chart(hist_d_values)
+
+# map
+st.subheader(f'Map of all pickups on < {d} >')
+st.map(data_d)
+
+
 ########## FILTRER AVEC LE SLIDER ##########
 
 
-st.subheader(f'\n\n\n FILTERING WITH SLIDER')
+st.subheader('FILTERING WITH SLIDER')
 
 # filtrage
-filter = st.slider('\n\n\n for what hour do you want to view data ?', 0, 23, 17)  # de 0 à 23, défaut = 17
+filter = st.slider(f'For what hour do you want to view data on {d} ?', 0, 23, 17)  # de 0 à 23, défaut = 17
 data_filter = data[data['date/time'].dt.hour==filter]
 
 # entête
-st.subheader(f'Number of pickups by minutes at {filter}:00')
+st.subheader(f'Number of pickups at < {filter}:00 > on < {d} >')
 
 
 # histogramme
@@ -144,9 +170,8 @@ hist_filter_values = histo_filter[0]
 st.bar_chart(hist_filter_values)
 
 # map
-st.subheader(f'Map of all at {filter}:00')
+st.subheader(f'Map of all at < {filter}:00 > on < {d} >')
 st.map(data_filter)
-
 
 
 ########## DEPLOYER L'APP AVEC STREAMLIT CLOUD ##########
@@ -156,3 +181,6 @@ st.map(data_filter)
 # s'inscrire à share.streamlit.io
 
 # Cliquer 'Deploy an app' puis coller l'url du repo
+
+
+st.title(' \n WE LOVE DATA WITH PYTHON')
